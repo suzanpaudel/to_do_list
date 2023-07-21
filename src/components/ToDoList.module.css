@@ -25,3 +25,16 @@
 	flex-direction: column;
 	row-gap: 10px;
 }
+
+@media (max-width: 768px) {
+	.todoSection {
+		width: 80%;
+	}
+}
+
+@media (max-width: 450px) {
+	.filterOptions {
+		flex-direction: column;
+		row-gap: 8px;
+	}
+}

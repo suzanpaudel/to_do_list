@@ -5,3 +5,10 @@
 	padding: 40px 60px;
 	background-color: orange;
 }
+
+@media (max-width: 768px) {
+	.header {
+		flex-direction: column;
+		row-gap: 16px;
+	}
+}

@@ -4,6 +4,7 @@
 	border: none;
 	color: #5b5b5b;
 	font-size: 16px;
+	cursor: pointer;
 }
 
 .filterOptions:focus-visible {
