@@ -7,25 +7,10 @@ import { ALL, COMPLETED, INCOMPLETE } from "../constants";
 
 import styles from "./ToDoList.module.css";
 import Header from "./ui/Header";
+import Stats from "./Stats";
 
 const ToDoList = () => {
-	const [todos, setTodos] = useState([
-		{
-			id: "todo1",
-			title: "Buy Vegetables",
-			isCompleted: true,
-		},
-		{
-			id: "todo2",
-			title: "Buy Fruits",
-			isCompleted: false,
-		},
-		{
-			id: "todo3",
-			title: "Buy Book",
-			isCompleted: true,
-		},
-	]);
+	const [todos, setTodos] = useState([]);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [filterOption, setFilterOption] = useState(ALL);
 
@@ -98,6 +83,8 @@ const ToDoList = () => {
 						))}
 					</ul>
 				</div>
+
+				<Stats todos={todos} />
 			</section>
 		</div>
 	);

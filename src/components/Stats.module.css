@@ -1,0 +1,8 @@
+.stats {
+	background-color: #67c1a3;
+	padding: 16px;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
