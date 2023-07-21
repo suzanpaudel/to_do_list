@@ -7,7 +7,6 @@ import { ALL, COMPLETED, INCOMPLETE } from "../constants";
 
 import styles from "./ToDoList.module.css";
 import Header from "./ui/Header";
-import Container from "./ui/Container";
 
 const ToDoList = () => {
 	const [todos, setTodos] = useState([
@@ -85,17 +84,21 @@ const ToDoList = () => {
 					/>
 				</div>
 			</Header>
-			<AddToDoForm onAddToDo={handleToDoAdd} />
-			<ul>
-				{finalTodos.map(todo => (
-					<ToDo
-						key={todo.id}
-						todo={todo}
-						onChangeToDoStatus={handleToDoToggle}
-						onDeleteToDo={handleToDoDelete}
-					/>
-				))}
-			</ul>
+			<section className={styles.mainSection}>
+				<div className={styles.todoSection}>
+					<AddToDoForm onAddToDo={handleToDoAdd} />
+					<ul className={styles.todoList}>
+						{finalTodos.map(todo => (
+							<ToDo
+								key={todo.id}
+								todo={todo}
+								onChangeToDoStatus={handleToDoToggle}
+								onDeleteToDo={handleToDoDelete}
+							/>
+						))}
+					</ul>
+				</div>
+			</section>
 		</div>
 	);
 };

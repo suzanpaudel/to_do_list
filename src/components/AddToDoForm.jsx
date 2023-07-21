@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Input from "./ui/Input";
+
+import styles from "./AddToDoForm.module.css";
 
 const AddToDoForm = ({ onAddToDo }) => {
 	const [title, setTitle] = useState("");
@@ -20,14 +23,18 @@ const AddToDoForm = ({ onAddToDo }) => {
 	};
 
 	return (
-		<form onSubmit={handleFormSubmit}>
-			<input
+		<form
+			onSubmit={handleFormSubmit}
+			className={styles.addToDoForm}
+		>
+			<Input
 				type="text"
-				placeholder="Enter a todo"
+				placeholder="Enter a Todo"
 				value={title}
 				onChange={e => setTitle(e.target.value)}
 			/>
 			<button
+				className={styles.addButton}
 				type="submit"
 				disabled={!title}
 			>
