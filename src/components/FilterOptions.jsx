@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ALL, COMPLETED, INCOMPLETED } from "../constants";
+import { ALL, COMPLETED, INCOMPLETE } from "../constants";
 
 const FilterOptions = ({ option, onChangeOption }) => {
 	return (
@@ -9,7 +9,7 @@ const FilterOptions = ({ option, onChangeOption }) => {
 		>
 			<option value={ALL}>All</option>
 			<option value={COMPLETED}>Completed</option>
-			<option value={INCOMPLETED}>Incompleted</option>
+			<option value={INCOMPLETE}>Incomplete</option>
 		</select>
 	);
 };

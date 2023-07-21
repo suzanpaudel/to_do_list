@@ -1,3 +1,3 @@
 export const ALL = "ALL";
 export const COMPLETED = "COMPLETED";
-export const INCOMPLETED = "INCOMPLETED";
+export const INCOMPLETE = "INCOMPLETE";
