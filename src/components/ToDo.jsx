@@ -5,14 +5,20 @@ import styles from "./ToDo.module.css";
 const ToDo = ({ todo, onChangeToDoStatus, onDeleteToDo }) => {
 	const { id, title, isCompleted } = todo;
 	return (
-		<li className={isCompleted ? `${styles.completed}` : null}>
+		<li className={`${styles.todo} ${isCompleted && styles.completed}`}>
 			<input
 				type="checkbox"
 				checked={isCompleted}
+				className={styles.checkbox}
 				onChange={() => onChangeToDoStatus(id)}
 			/>
 			{title}
-			<button onClick={() => onDeleteToDo(id)}>&times;</button>
+			<button
+				className={styles.deleteButton}
+				onClick={() => onDeleteToDo(id)}
+			>
+				&times;
+			</button>
 		</li>
 	);
 };

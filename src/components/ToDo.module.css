@@ -1,4 +1,27 @@
+.todo {
+	background-color: aliceblue;
+	padding: 10px;
+	position: relative;
+}
+
 .completed {
 	color: #808080;
 	text-decoration: line-through;
+}
+
+.checkbox {
+	margin-right: 8px;
+}
+
+.deleteButton {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #dc3545;
+	height: 100%;
+	border: none;
+	width: 50px;
+	font-size: 24px;
+	color: #fff;
+	cursor: pointer;
 }
