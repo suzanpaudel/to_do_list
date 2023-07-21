@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ToDo from "./ToDo";
+import AddToDoForm from "./AddToDoForm";
 
 const ToDoList = () => {
 	const [todos, setToDos] = useState([
@@ -16,9 +17,15 @@ const ToDoList = () => {
 			title: "Buy Book",
 		},
 	]);
+
+	const handleToDoAdd = todo => {
+		setToDos(todos => [...todos, todo]);
+	};
+
 	return (
 		<div>
 			<h4>To Do List</h4>
+			<AddToDoForm onAddToDo={handleToDoAdd} />
 			<ul>
 				{todos.map(todo => (
 					<ToDo
