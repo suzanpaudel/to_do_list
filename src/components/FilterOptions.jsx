@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { ALL, COMPLETED, INCOMPLETE } from "../constants";
+
+import styles from "./FilterOptions.module.css";
 
 const FilterOptions = ({ option, onChangeOption }) => {
 	return (
 		<select
+			className={styles.filterOptions}
 			value={option}
 			onChange={e => onChangeOption(e.target.value)}
 		>

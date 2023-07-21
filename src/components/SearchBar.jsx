@@ -1,15 +1,14 @@
 import React from "react";
+import Input from "./ui/Input";
 
 const SearchBar = ({ query, onChangeInput }) => {
 	return (
-		<div>
-			<input
-				type="text"
-				value={query}
-				placeholder="Search Todo"
-				onChange={e => onChangeInput(e.target.value)}
-			/>
-		</div>
+		<Input
+			type="text"
+			value={query}
+			placeholder="Search Todo"
+			onChange={e => onChangeInput(e.target.value)}
+		/>
 	);
 };
 

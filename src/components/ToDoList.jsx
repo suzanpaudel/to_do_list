@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ToDo from "./ToDo";
+import SearchBar from "./SearchBar";
 import AddToDoForm from "./AddToDoForm";
 import FilterOptions from "./FilterOptions";
 import { ALL, COMPLETED, INCOMPLETE } from "../constants";
-import SearchBar from "./SearchBar";
+
+import styles from "./ToDoList.module.css";
+import Header from "./ui/Header";
+import Container from "./ui/Container";
 
 const ToDoList = () => {
 	const [todos, setTodos] = useState([
@@ -68,15 +72,19 @@ const ToDoList = () => {
 
 	return (
 		<div>
-			<h4>To Do List</h4>
-			<SearchBar
-				query={searchQuery}
-				onChangeInput={handleSearchQueryChange}
-			/>
-			<FilterOptions
-				option={filterOption}
-				onChangeOption={handleFilterOptionChange}
-			/>
+			<Header>
+				<h4 className={styles.heading}>To Do List</h4>
+				<div className={styles.filterOptions}>
+					<SearchBar
+						query={searchQuery}
+						onChangeInput={handleSearchQueryChange}
+					/>
+					<FilterOptions
+						option={filterOption}
+						onChangeOption={handleFilterOptionChange}
+					/>
+				</div>
+			</Header>
 			<AddToDoForm onAddToDo={handleToDoAdd} />
 			<ul>
 				{finalTodos.map(todo => (
