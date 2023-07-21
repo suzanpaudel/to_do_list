@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ToDo from "./ToDo";
 import AddToDoForm from "./AddToDoForm";
 import FilterOptions from "./FilterOptions";
-import { ALL, COMPLETED, INCOMPLETED } from "../constants";
+import { ALL, COMPLETED, INCOMPLETE } from "../constants";
 
 const ToDoList = () => {
 	const [todos, setTodos] = useState([
@@ -31,7 +31,7 @@ const ToDoList = () => {
 		const filteredTodos = todos.filter(todo => {
 			if (filterOption === COMPLETED) {
 				return todo.isCompleted;
-			} else if (filterOption === INCOMPLETED) {
+			} else if (filterOption === INCOMPLETE) {
 				return !todo.isCompleted;
 			} else {
 				return true;
