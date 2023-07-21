@@ -1,8 +1,19 @@
 import React from "react";
 
-const ToDo = ({ todo }) => {
-	const { title } = todo;
-	return <li>{title}</li>;
+import styles from "./ToDo.module.css";
+
+const ToDo = ({ todo, onChangeToDoStatus }) => {
+	const { id, title, isCompleted } = todo;
+	return (
+		<li className={isCompleted ? `${styles.completed}` : null}>
+			<input
+				type="checkbox"
+				checked={isCompleted}
+				onChange={() => onChangeToDoStatus(id)}
+			/>
+			{title}
+		</li>
+	);
 };
 
 export default ToDo;

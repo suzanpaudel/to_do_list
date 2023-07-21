@@ -7,19 +7,26 @@ const ToDoList = () => {
 		{
 			id: "todo1",
 			title: "Buy Vegetables",
+			isCompleted: true,
 		},
 		{
 			id: "todo2",
 			title: "Buy Fruits",
+			isCompleted: false,
 		},
 		{
 			id: "todo3",
 			title: "Buy Book",
+			isCompleted: true,
 		},
 	]);
 
 	const handleToDoAdd = todo => {
 		setToDos(todos => [...todos, todo]);
+	};
+
+	const handleToDoToggle = id => {
+		setToDos(todos => todos.map(todo => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)));
 	};
 
 	return (
@@ -31,6 +38,7 @@ const ToDoList = () => {
 					<ToDo
 						key={todo.id}
 						todo={todo}
+						onChangeToDoStatus={handleToDoToggle}
 					/>
 				))}
 			</ul>
