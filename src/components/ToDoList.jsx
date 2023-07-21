@@ -3,6 +3,7 @@ import ToDo from "./ToDo";
 import AddToDoForm from "./AddToDoForm";
 import FilterOptions from "./FilterOptions";
 import { ALL, COMPLETED, INCOMPLETE } from "../constants";
+import SearchBar from "./SearchBar";
 
 const ToDoList = () => {
 	const [todos, setTodos] = useState([
@@ -22,13 +23,13 @@ const ToDoList = () => {
 			isCompleted: true,
 		},
 	]);
-
-	const [filteredTodos, setFilteredTodos] = useState(todos);
-
+	const [searchQuery, setSearchQuery] = useState("");
 	const [filterOption, setFilterOption] = useState(ALL);
 
+	const [finalTodos, setFinalTodos] = useState(todos);
+
 	useEffect(() => {
-		const filteredTodos = todos.filter(todo => {
+		const finalTodos = todos.filter(todo => {
 			if (filterOption === COMPLETED) {
 				return todo.isCompleted;
 			} else if (filterOption === INCOMPLETE) {
@@ -38,8 +39,12 @@ const ToDoList = () => {
 			}
 		});
 
-		setFilteredTodos(filteredTodos);
-	}, [filterOption, todos]);
+		const searchedAndFilteredTodos = finalTodos.filter(todo =>
+			todo.title.toLowerCase().includes(searchQuery.toLowerCase())
+		);
+
+		setFinalTodos(searchedAndFilteredTodos);
+	}, [searchQuery, filterOption, todos]);
 
 	const handleToDoAdd = todo => {
 		setTodos(todos => [...todos, todo]);
@@ -57,16 +62,24 @@ const ToDoList = () => {
 		setFilterOption(value);
 	};
 
+	const handleSearchQueryChange = inputText => {
+		setSearchQuery(inputText);
+	};
+
 	return (
 		<div>
 			<h4>To Do List</h4>
+			<SearchBar
+				query={searchQuery}
+				onChangeInput={handleSearchQueryChange}
+			/>
 			<FilterOptions
 				option={filterOption}
 				onChangeOption={handleFilterOptionChange}
 			/>
 			<AddToDoForm onAddToDo={handleToDoAdd} />
 			<ul>
-				{filteredTodos.map(todo => (
+				{finalTodos.map(todo => (
 					<ToDo
 						key={todo.id}
 						todo={todo}
