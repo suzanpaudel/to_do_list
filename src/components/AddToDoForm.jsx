@@ -10,6 +10,7 @@ const AddToDoForm = ({ onAddToDo }) => {
 
 		const newTodo = {
 			title,
+			isCompleted: false,
 			id: Math.floor(Math.random() * 10000),
 		};
 
@@ -17,6 +18,7 @@ const AddToDoForm = ({ onAddToDo }) => {
 
 		setTitle("");
 	};
+
 	return (
 		<form onSubmit={handleFormSubmit}>
 			<input

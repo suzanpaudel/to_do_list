@@ -25,6 +25,10 @@ const ToDoList = () => {
 		setToDos(todos => [...todos, todo]);
 	};
 
+	const handleToDoDelete = id => {
+		setToDos(todos => todos.filter(todo => todo.id !== id));
+	};
+
 	const handleToDoToggle = id => {
 		setToDos(todos => todos.map(todo => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)));
 	};
@@ -39,6 +43,7 @@ const ToDoList = () => {
 						key={todo.id}
 						todo={todo}
 						onChangeToDoStatus={handleToDoToggle}
+						onDeleteToDo={handleToDoDelete}
 					/>
 				))}
 			</ul>
