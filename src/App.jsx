@@ -1,7 +1,8 @@
 import React from "react";
+import ToDoList from "./components/ToDoList";
 
 const App = () => {
-	return <div>TO DO LIST</div>;
+	return <ToDoList />;
 };
 
 export default App;
