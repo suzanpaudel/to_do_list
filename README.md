@@ -23,5 +23,5 @@ npm run dev
 npm run build
 
 # Run tests
-npm run test
+npm test
 ```
