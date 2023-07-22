@@ -16,6 +16,7 @@ const ToDo = ({ todo, onChangeToDoStatus, onDeleteToDo }) => {
 			<button
 				className={styles.deleteButton}
 				onClick={() => onDeleteToDo(id)}
+				data-testid="delete-button"
 			>
 				&times;
 			</button>
